@@ -1,7 +1,8 @@
 package edu.luc.cs.laufer.cs371.shapes
 
-/** data Shape = Rectangle(w, h) | Location(x, y, Shape) */
-enum Shape derives CanEqual:
-  case Rectangle(width: Int, height: Int)
-  case Location(x: Int, y: Int, shape: Shape)
-  // TODO add missing cases (see test fixtures)
+sealed trait Shape
+case class Rectangle(width: Int, height: Int) extends Shape
+case class Ellipse(horizontalRadius: Int, verticalRadius: Int) extends Shape
+case class Location(x: Int, y: Int, shape: Shape) extends Shape
+case class Group(shapes: Shape*) extends Shape
+case class Overlay(shape1: Shape, shape2: Shape) extends Shape
