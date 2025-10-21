@@ -1,10 +1,5 @@
 package edu.luc.cs.laufer.cs371.shapes
 
-import TestFixtures.*
-import Shape.Rectangle
-
-object Main:
-  def main(args: Array[String]): Unit =
-    println(boundingBox(simpleLocation))
-    println(Rectangle(2, 3) == Rectangle(2, 3))
-end Main
+@main def Main(): Unit =
+  val simpleLocation = Location(70, 30, Rectangle(80, 120))
+  println(BoundingBox(simpleLocation))
